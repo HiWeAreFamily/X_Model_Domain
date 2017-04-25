@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="org.dcc.domain.FunctionalType" table="FUNCTIONAL_TYPE"
+		schema="DB2INST1">
+		<id name="ftUid" type="java.lang.Long">
+			<column name="FT_UID" />
+			<generator class="native" />
+		</id>
+		<property name="ftDesc" type="java.lang.String">
+			<column name="FT_DESC" length="15" not-null="true" />
+		</property>
+		<!-- 旧方案 <set name="funcCats" inverse="true"> <key> <column name="FT_UID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.FuncCat" /> 
+			</set> -->
+
+		<!-- 新方案:通过table项告诉hibernate中间表的名称 -->
+		<set name="categorys" table="FUNC_CAT" schema="DB2INST1" lazy="true">
+			<!-- 通过key属性告诉hibernate在中间表里面查询FT_id值相应的Product记录 -->
+			<key column="FT_UID" />
+			<!-- 通过column项告诉hibernate对student表中查找C_id值相就的Realsea记录 -->
+			<many-to-many class="org.dcc.domain.Category" column="CAT_ID" />
+		</set>
+		<!--//TODO 以后可能放开 <set name="relFts" inverse="true"> <key> <column name="FT_UID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.RelFt" /> </set> -->
+	</class>
+</hibernate-mapping>

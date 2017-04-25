@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 介绍说明: -->
+<hibernate-mapping>
+	<class name="org.dcc.domain.CategoryConnector" table="CATEGORY_CONNECTOR"
+		schema="DB2INST1">
+		<composite-id>
+			<key-many-to-one name="categoryCompat" class="org.dcc.domain.CategoryCompat">
+				<column name="CUID" />
+			</key-many-to-one>
+			<key-many-to-one name="connector" class="org.dcc.domain.Connector">
+				<column name="CONN_UID" />
+			</key-many-to-one>
+			<!-- <key-property name="categoryCompatId" type="java.lang.Long"> <column 
+				name="CUID" /> </key-property> <key-property name="connectorId" type="java.lang.Long"> 
+				<column name="CONN_UID" /> </key-property> -->
+			<key-property name="qty" type="java.lang.Integer">
+				<column name="QTY" />
+			</key-property>
+		</composite-id>
+
+		<!-- <many-to-one name="connector" class="org.dcc.domain.Connector" update="false" 
+			insert="false" fetch="select"> -->
+		<!-- <many-to-one name="connector" class="org.dcc.domain.Connector" update="false" 
+			insert="false"> <column name="CONN_UID" /> </many-to-one> -->
+		<!-- <many-to-one name="categoryCompat" class="org.dcc.domain.CategoryCompat" 
+			update="false" insert="false"> <column name="CUID" not-null="true" /> </many-to-one> -->
+
+	</class>
+</hibernate-mapping>

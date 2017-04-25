@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- org.dcc.domain.Connector连接器 -->
+<hibernate-mapping>
+	<class name="org.dcc.domain.Connector" table="CONNECTOR" schema="DB2INST1">
+		<id name="connUid" type="java.lang.Long">
+			<column name="CONN_UID" />
+			<generator class="identity" />
+		</id>
+		<property name="connDesc" type="java.lang.String">
+			<column name="CONN_DESC" length="100" not-null="true" />
+		</property>
+		<property name="gender" type="java.lang.String">
+			<column name="GENDER" length="1" />
+		</property>
+		<!-- <set name="prodP2pLocations" inverse="true"> <key> <column name="PROD_CONN_UID" 
+			/> </key> <one-to-many class="org.dcc.domain.ProdP2pLocation" /> </set> -->
+		<!-- <set name="connLayoutMaps" inverse="true"> <key> <column name="CONN_UID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.ConnLayoutMap" 
+			/> </set> -->
+		<!-- <set name="connectorReplcmntsForDefaultConnUid" inverse="true"> <key> 
+			<column name="DEFAULT_CONN_UID" not-null="true" /> </key> <one-to-many class="org.dcc.domain.ConnectorReplcmnt" 
+			/> </set> -->
+		<!-- <set name="prdSlots" inverse="true"> <key> <column name="CONN_UID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.PrdSlot" /> 
+			</set> <set name="fillerses" inverse="true"> <key> <column name="CONN" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.Fillers" /> </set> -->
+		<!-- <set name="slotMis" inverse="true"> <key> <column name="SLOT" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.SlotMi" /> </set> <set name="connectorReplcmntsForReplaceConnUid" 
+			inverse="true"> <key> <column name="REPLACE_CONN_UID" not-null="true" /> 
+			</key> <one-to-many class="org.dcc.domain.ConnectorReplcmnt" /> </set> -->
+		<!-- <set name="categoryConnectors" lazy="true"> <key> <column name="CONN_UID" 
+			/> </key> <one-to-many class="org.dcc.domain.CategoryConnector" /> </set> -->
+
+		<!-- <set name="connectorCompatsForConn1Uid" inverse="true"> <key> <column 
+			name="CONN_1_UID" not-null="true" /> </key> <one-to-many class="org.dcc.domain.ConnectorCompat" 
+			/> </set> -->
+		<!-- <set name="connectorCompatsForConn2Uid" inverse="true"> <key> <column 
+			name="CONN_2_UID" not-null="true" /> </key> <one-to-many class="org.dcc.domain.ConnectorCompat" 
+			/> </set> -->
+
+
+		<!-- <set name="connectorNets" inverse="true"> <key> <column name="CONN_UID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.ConnectorNet" 
+			/> </set> -->
+	</class>
+</hibernate-mapping>

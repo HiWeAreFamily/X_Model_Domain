@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 介绍说明: -->
+<hibernate-mapping>
+	<class name="org.dcc.domain.Release" table="RELEASE" schema="DB2INST1">
+		<id name="ruid" type="java.lang.Integer">
+			<column name="RUID" />
+			<generator class="native" />
+		</id>
+		<!-- <many-to-one name="solutionCat" class="org.dcc.domain.SolutionCat"
+			fetch="select">
+			<column name="SOL_ID" />
+		</many-to-one> -->
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" length="10" not-null="true" />
+		</property>
+		<property name="active" type="java.lang.String">
+			<column name="ACTIVE" length="1" />
+		</property>
+	<!-- 	<set name="relProds" inverse="true">
+			<key>
+				<column name="RUID" not-null="true" />
+			</key>
+			<one-to-many class="org.dcc.domain.RelProd" />
+		</set> -->
+
+		<!-- 通过table项告诉hibernate中间表的名称 -->
+		<set name="products" table="REL_PROD" schema="DB2INST1" inverse="true">
+			<!-- 通过key属性告诉hibernate在中间表里面查询product_id值相应的Product记录 -->
+			<key column="RUID" />
+			<!-- 通过column项告诉hibernate对student表中查找student_id值相就的Realsea记录 -->
+			<many-to-many class="org.dcc.domain.Product" column="PUID" />
+		</set>
+
+<!-- 	<set name="relChngs" inverse="true">
+			<key>
+				<column name="RUID" not-null="true" />
+			</key>
+			<one-to-many class="org.dcc.domain.RelChng" />
+		</set>
+		<set name="oemGenses" inverse="true">
+			<key>
+				<column name="RUID" />
+			</key>
+			<one-to-many class="org.dcc.domain.OemGens" />
+		</set>
+		<set name="bomGenses" inverse="true">
+			<key>
+				<column name="RUID" not-null="true" />
+			</key>
+			<one-to-many class="org.dcc.domain.BomGens" />
+		</set>
+		
+		<set name="relFts" inverse="true">
+			<key>
+				<column name="RUID" not-null="true" />
+			</key>
+			<one-to-many class="org.dcc.domain.RelFt" />
+		</set>
+		<set name="e1350Dtes" inverse="true">
+			<key>
+				<column name="RUID" not-null="true" />
+			</key>
+			<one-to-many class="org.dcc.domain.E1350Dte" />
+		</set> -->
+	</class>
+</hibernate-mapping>

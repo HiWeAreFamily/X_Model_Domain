@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 介绍说明: -->
+<hibernate-mapping>
+	<class name="org.dcc.domain.CategoryCompat" table="CATEGORY_COMPAT"
+		schema="DB2INST1">
+		<id name="cuid" type="java.lang.Long">
+			<column name="CUID" />
+			<generator class="identity" />
+		</id>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" length="120" not-null="true" />
+		</property>
+
+
+		<!-- <set name="passthrusForCuid3" inverse="true"> <key> <column name="CUID3" 
+			/> </key> <one-to-many class="org.dcc.domain.Passthru" /> </set> -->
+			
+			
+		<!-- <set name="categoryProdGrps" inverse="true" > <key> <column name="CUID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.CategoryProdGrp" 
+			/> </set> -->
+			
+			
+		<!-- <set name="passthrusForCuid2" inverse="true"> <key> <column name="CUID2" 
+			/> </key> <one-to-many class="org.dcc.domain.Passthru" /> </set> -->
+		<!-- <set name="categoryConnectors" lazy="true"> <key> <column name="CUID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.CategoryConnector" 
+			/> </set> -->
+		<!-- <set name="passthrusForCuid1" inverse="true"> <key> <column name="CUID1" 
+			/> </key> <one-to-many class="org.dcc.domain.Passthru" /> </set> -->
+	</class>
+</hibernate-mapping>

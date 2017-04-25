@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 介绍说明: -->
+<hibernate-mapping>
+	<class name="org.dcc.domain.ListCat" table="LIST_CAT" schema="DB2INST1"
+		>
+		<id name="cid" type="java.lang.Integer">
+			<column name="CID" />
+			<generator class="identity" />
+		</id>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" length="35" not-null="true" />
+		</property>
+	<!-- <set name="listProds" inverse="true" lazy="false"> -->
+		<set name="listProds" inverse="true" fetch="select">
+			<key>
+				<column name="CID" />
+			</key>
+			<one-to-many class="org.dcc.domain.ListProd" />
+		</set>
+	</class>
+</hibernate-mapping>

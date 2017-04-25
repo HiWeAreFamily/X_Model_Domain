@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 介绍说明: -->
+<hibernate-mapping>
+	<class name="org.dcc.domain.ListProd" table="LIST_PROD" schema="DB2INST1"
+		>
+		<!-- 中间表联合主键 -->
+		<composite-id name="id" class="org.dcc.domain.ListProdId">
+			<key-many-to-one name="listCat" class="org.dcc.domain.ListCat">
+				<column name="CID" />
+			</key-many-to-one>
+			<key-property name="puid" type="java.lang.Long">
+				<column name="PUID" />
+			</key-property>
+		</composite-id>
+		<!-- 多余 <many-to-one name="listCat" class="org.dcc.domain.ListCat" update="false" 
+			insert="false" fetch="select"> <column name="CID" /> </many-to-one> -->
+	</class>
+</hibernate-mapping>

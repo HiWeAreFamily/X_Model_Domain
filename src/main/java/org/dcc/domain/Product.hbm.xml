@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 介绍说明: -->
+<hibernate-mapping>
+	<class name="org.dcc.domain.Product" table="PRODUCT" schema="DB2INST1">
+		<id name="puid" type="java.lang.Long">
+			<column name="PUID" />
+			<generator class="identity" />
+		</id>
+		<!-- fetch ：抓取策略，类似于lazy select=true -->
+		<many-to-one name="functionalType" class="org.dcc.domain.FunctionalType" lazy="false"
+			fetch="select">
+			<column name="FT_UID" />
+		</many-to-one>
+		<many-to-one name="category" class="org.dcc.domain.Category" lazy="false"
+			fetch="select">
+			<column name="CAT_ID" />
+		</many-to-one>
+		<many-to-one name="brand" class="org.dcc.domain.Brand" lazy="false"
+			fetch="select">
+			<column name="BID" />
+		</many-to-one>
+		<many-to-one name="mfg" class="org.dcc.domain.Mfg" lazy="false" fetch="select">
+			<column name="MFG_ID" />
+		</many-to-one>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" length="160" not-null="true" />
+		</property>
+		<property name="mt" type="java.lang.String">
+			<column name="MT" length="5" />
+		</property>
+		<property name="model" type="java.lang.String">
+			<column name="MODEL" length="20" />
+		</property>
+		<property name="featCode" type="java.lang.String">
+			<column name="FEAT_CODE" length="15" />
+		</property>
+		<property name="ppn" type="java.lang.String">
+			<column name="PPN" length="20" />
+		</property>
+		<property name="fruPn" type="java.lang.String">
+			<column name="FRU_PN" length="20" />
+		</property>
+		<property name="optPn" type="java.lang.String">
+			<column name="OPT_PN" length="20" />
+		</property>
+		<property name="mfgPn" type="java.lang.String">
+			<column name="MFG_PN" length="40" />
+		</property>
+		<property name="sbb" type="java.lang.String">
+			<column name="SBB" length="15" />
+		</property>
+		<property name="mfi" type="java.lang.String">
+			<column name="MFI" length="10" />
+		</property>
+		<property name="ffi" type="java.lang.String">
+			<column name="FFI" length="10" />
+		</property>
+		<property name="price" type="java.lang.String">
+			<column name="PRICE" length="20" />
+		</property>
+		<property name="modelx" type="java.lang.String">
+			<column name="MODELX" length="20" />
+		</property>
+		<property name="visible" type="character">
+			<column name="VISIBLE" length="1" />
+		</property>
+		<property name="fcAas" type="java.lang.String">
+			<column name="FC_AAS" length="4" />
+		</property>
+		<property name="passthru" type="character">
+			<column name="PASSTHRU" length="1" />
+		</property>
+		<property name="xccVld" type="character">
+			<column name="XCC_VLD" length="1" />
+		</property>
+		<property name="bhcId" type="java.lang.String">
+			<column name="BHC_ID" length="42" />
+		</property>
+		<property name="bhcFeat" type="java.lang.String">
+			<column name="BHC_FEAT" length="42" />
+		</property>
+		<property name="customerSelected" type="java.lang.String">
+			<column name="CUSTOMER_SELECTED" length="5" />
+		</property>
+		<property name="priced" type="java.lang.String">
+			<column name="PRICED" length="5" not-null="true" />
+		</property>
+		<property name="poptPn" type="java.lang.String">
+			<column name="POPT_PN" length="20" />
+		</property>
+		<!-- 旧方案:<set name="relProds" inverse="true"> <key> <column name="PUID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.RelProd" /> 
+			</set> -->
+
+		<!-- 新方案:通过table项告诉hibernate中间表的名称 -->
+		<set name="releases" table="REL_PROD" schema="DB2INST1">
+			<!-- 通过key属性告诉hibernate在中间表里面查询product_id值相应的Product记录 -->
+			<key column="PUID" />
+			<!-- 通过column项告诉hibernate对student表中查找student_id值相就的Realsea记录 -->
+			<many-to-many class="org.dcc.domain.Release" column="RUID" />
+		</set>
+
+		<!-- inverse="true" -->
+		<!-- <set name="addHists" > <key> <column name="PUID" not-null="true" unique="true" 
+			/> </key> <one-to-many class="org.dcc.domain.AddHist" /> </set> <set name="opsysesForProcFc" 
+			> <key> <column name="PROC_FC" /> </key> <one-to-many class="org.dcc.domain.Opsys" 
+			/> </set> <set name="prodP2pLocations" > <key> <column name="PROD_PUID" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.ProdP2pLocation" /> </set> <set 
+			name="servpacs" > <key> <column name="SP_PUID" not-null="true" unique="true" 
+			/> </key> <one-to-many class="org.dcc.domain.Servpac" /> </set> <set name="requiredAddsesForReqAdd" 
+			> <key> <column name="REQ_ADD" not-null="true" /> </key> <one-to-many class="org.dcc.domain.RequiredAdds" 
+			/> </set> <set name="rackings" > <key> <column name="PRODUCT" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.Racking" /> </set> <set name="fillerses" 
+			> <key> <column name="FILLER" not-null="true" /> </key> <one-to-many class="org.dcc.domain.Fillers" 
+			/> </set> <set name="fcAllautos" > <key> <column name="PUID" /> </key> <one-to-many 
+			class="org.dcc.domain.FcAllauto" /> </set> <set name="defaultAddsesForProduct" 
+			> <key> <column name="PRODUCT" not-null="true" /> </key> <one-to-many class="org.dcc.domain.DefaultAdds" 
+			/> </set> <set name="requiredAddsesForProd2" > <key> <column name="PROD2" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.RequiredAdds" 
+			/> </set> <set name="gavMapsForOpt" > <key> <column name="OPT" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.GavMap" /> </set> <set name="ndpses" 
+			> <key> <column name="PUID" /> </key> <one-to-many class="org.dcc.domain.Ndps" 
+			/> </set> <set name="overideDatesesForSbbPuid" > <key> <column name="SBB_PUID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.OverideDates" 
+			/> </set> <set name="xccHvecsForHvec" > <key> <column name="HVEC" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.XccHvec" /> </set> <set name="opsysesForLicense" 
+			> <key> <column name="LICENSE" not-null="true" /> </key> <one-to-many class="org.dcc.domain.Opsys" 
+			/> </set> <set name="usrComts" > <key> <column name="PUID" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.UsrComt" /> </set> <set name="solutionCatsForSolSbFc" 
+			> <key> <column name="SOL_SB_FC" /> </key> <one-to-many class="org.dcc.domain.SolutionCat" 
+			/> </set> <set name="prdLocks" > <key> <column name="PUID" not-null="true" 
+			unique="true" /> </key> <one-to-many class="org.dcc.domain.PrdLock" /> </set> 
+			<set name="pduMapsForHvecCbl" > <key> <column name="HVEC_CBL" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.PduMap" /> </set> <set name="networkHcas" 
+			> <key> <column name="PUID" /> </key> <one-to-many class="org.dcc.domain.NetworkHca" 
+			/> </set> <set name="procMaps" > <key> <column name="PROC_1" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.ProcMap" /> </set> <set name="fcAutoaddsForFcAdd" 
+			> <key> <column name="FC_ADD" not-null="true" /> </key> <one-to-many class="org.dcc.domain.FcAutoadd" 
+			/> </set> <set name="networkSwitchs" > <key> <column name="PUID" /> </key> 
+			<one-to-many class="org.dcc.domain.NetworkSwitch" /> </set> <set name="placementMaps" 
+			> <key> <column name="MANF_INSTR_PUID" not-null="true" unique="true" /> </key> 
+			<one-to-many class="org.dcc.domain.PlacementMap" /> </set> <set name="connLayoutMaps" 
+			> <key> <column name="PUID" not-null="true" /> </key> <one-to-many class="org.dcc.domain.ConnLayoutMap" 
+			/> </set> <set name="conditionalAddsesForSourceBPuid" > <key> <column name="SOURCE_B_PUID" 
+			/> </key> <one-to-many class="org.dcc.domain.ConditionalAdds" /> </set> <set 
+			name="conditionalAddsesForSourceDPuid" > <key> <column name="SOURCE_D_PUID" 
+			/> </key> <one-to-many class="org.dcc.domain.ConditionalAdds" /> </set> <set 
+			name="connectorReplcmnts" > <key> <column name="PUID" not-null="true" /> 
+			</key> <one-to-many class="org.dcc.domain.ConnectorReplcmnt" /> </set> <set 
+			name="pwrMaps" > <key> <column name="P_CABLE" not-null="true" unique="true" 
+			/> </key> <one-to-many class="org.dcc.domain.PwrMap" /> </set> <set name="softwareRoutings" 
+			> <key> <column name="SERVER" not-null="true" /> </key> <one-to-many class="org.dcc.domain.SoftwareRouting" 
+			/> </set> <set name="gavMapsForXccMt" > <key> <column name="XCC_MT" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.GavMap" /> </set> <set name="ecs" 
+			> <key> <column name="PUID" not-null="true" /> </key> <one-to-many class="org.dcc.domain.Ec" 
+			/> </set> <set name="conditionalAddsesForSourceCPuid" > <key> <column name="SOURCE_C_PUID" 
+			/> </key> <one-to-many class="org.dcc.domain.ConditionalAdds" /> </set> <set 
+			name="defaultAddsesForDfltAdd" > <key> <column name="DFLT_ADD" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.DefaultAdds" /> </set> <set 
+			name="pduMapsForXccPdu" > <key> <column name="XCC_PDU" not-null="true" /> 
+			</key> <one-to-many class="org.dcc.domain.PduMap" /> </set> <set name="opsysesForServer" 
+			> <key> <column name="SERVER" /> </key> <one-to-many class="org.dcc.domain.Opsys" 
+			/> </set> <set name="masterCompatMapsForCompPuid" > <key> <column name="COMP_PUID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.MasterCompatMap" 
+			/> </set> <set name="opsysSelectsForFeature" > <key> <column name="FEATURE" 
+			/> </key> <one-to-many class="org.dcc.domain.OpsysSelect" /> </set> <set 
+			name="conditionalAddsesForSourceAPuid" > <key> <column name="SOURCE_A_PUID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.ConditionalAdds" 
+			/> </set> <set name="prodShortLbls" > <key> <column name="PROD_PUID" not-null="true" 
+			unique="true" /> </key> <one-to-many class="org.dcc.domain.ProdShortLbl" 
+			/> </set> <set name="incompatsForPuid2" > <key> <column name="PUID_2" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.Incompat" /> </set> <set name="gavMapsForHvecMtm" 
+			> <key> <column name="HVEC_MTM" not-null="true" /> </key> <one-to-many class="org.dcc.domain.GavMap" 
+			/> </set> <set name="memMapsForXccMem" > <key> <column name="XCC_MEM" /> 
+			</key> <one-to-many class="org.dcc.domain.MemMap" /> </set> <set name="subComponentsesForSubCompPuid" 
+			> <key> <column name="SUB_COMP_PUID" not-null="true" /> </key> <one-to-many 
+			class="org.dcc.domain.SubComponents" /> </set> <set name="prdFcs" > <key> 
+			<column name="OPT" not-null="true" /> </key> <one-to-many class="org.dcc.domain.PrdFc" 
+			/> </set> <set name="salesItemses" > <key> <column name="PUID" /> </key> 
+			<one-to-many class="org.dcc.domain.SalesItems" /> </set> <set name="incompatsForPuid1" 
+			> <key> <column name="PUID_1" not-null="true" /> </key> <one-to-many class="org.dcc.domain.Incompat" 
+			/> </set> <set name="subComponentsesForCompPuid" > <key> <column name="COMP_PUID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.SubComponents" 
+			/> </set> <set name="replaceProductsForPuid" > <key> <column name="PUID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.ReplaceProduct" 
+			/> </set> <set name="prodPics" > <key> <column name="PUID" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.ProdPic" /> </set> <set name="replaceProductsForReplacementPuid" 
+			> <key> <column name="REPLACEMENT_PUID" not-null="true" /> </key> <one-to-many 
+			class="org.dcc.domain.ReplaceProduct" /> </set> <set name="PDateses" > <key> 
+			<column name="PUID" not-null="true" unique="true" /> </key> <one-to-many 
+			class="org.dcc.domain.PDates" /> </set> <set name="opsysesForOsFc" > <key> 
+			<column name="OS_FC" /> </key> <one-to-many class="org.dcc.domain.Opsys" 
+			/> </set> <set name="supAddsesForProd1" > <key> <column name="PROD1" /> </key> 
+			<one-to-many class="org.dcc.domain.SupAdds" /> </set> <set name="masterCompatMapsForMtPuid" 
+			> <key> <column name="MT_PUID" not-null="true" /> </key> <one-to-many class="org.dcc.domain.MasterCompatMap" 
+			/> </set> <set name="supAddsesForSupAdd" > <key> <column name="SUP_ADD" /> 
+			</key> <one-to-many class="org.dcc.domain.SupAdds" /> </set> <set name="requiredAddsesForProd1" 
+			> <key> <column name="PROD1" not-null="true" /> </key> <one-to-many class="org.dcc.domain.RequiredAdds" 
+			/> </set> <set name="supAddsesForProd2" > <key> <column name="PROD2" /> </key> 
+			<one-to-many class="org.dcc.domain.SupAdds" /> </set> <set name="productGroups" 
+			> <key> <column name="GROUP_PUID" /> </key> <one-to-many class="org.dcc.domain.ProductGroup" 
+			/> </set> <set name="olbBoxerIncomps" > <key> <column name="MT_PUID" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.OlbBoxerIncomp" /> </set> <set 
+			name="xccPricesForMt" > <key> <column name="MT" not-null="true" /> </key> 
+			<one-to-many class="org.dcc.domain.XccPrice" /> </set> <set name="opsysSelectsForMedKit" 
+			> <key> <column name="MED_KIT" not-null="true" /> </key> <one-to-many class="org.dcc.domain.OpsysSelect" 
+			/> </set> <set name="conditionalAddsesForResultPuid" > <key> <column name="RESULT_PUID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.ConditionalAdds" 
+			/> </set> <set name="opsysSelectsForSftwrPid" > <key> <column name="SFTWR_PID" 
+			/> </key> <one-to-many class="org.dcc.domain.OpsysSelect" /> </set> <set 
+			name="slotMisForOpt" > <key> <column name="OPT" not-null="true" /> </key> 
+			<one-to-many class="org.dcc.domain.SlotMi" /> </set> <set name="rackLimitsForProduct" 
+			> <key> <column name="PRODUCT" not-null="true" /> </key> <one-to-many class="org.dcc.domain.RackLimit" 
+			/> </set> <set name="fcAutoaddsForFcTool" > <key> <column name="FC_TOOL" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.FcAutoadd" /> 
+			</set> <set name="conditionalAddsesForDestinationPuid" > <key> <column name="DESTINATION_PUID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.ConditionalAdds" 
+			/> </set> <set name="slotMisForMt" > <key> <column name="MT" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.SlotMi" /> </set> <set name="networkCables" 
+			> <key> <column name="PUID" not-null="true" /> </key> <one-to-many class="org.dcc.domain.NetworkCable" 
+			/> </set> <set name="opsysesForSupFc" > <key> <column name="SUP_FC" /> </key> 
+			<one-to-many class="org.dcc.domain.Opsys" /> </set> <set name="procAddonMapsForProcAddonPuid" 
+			> <key> <column name="PROC_ADDON_PUID" not-null="true" /> </key> <one-to-many 
+			class="org.dcc.domain.ProcAddonMap" /> </set> <set name="procAddonMapsForProcInitPuid" 
+			> <key> <column name="PROC_INIT_PUID" not-null="true" /> </key> <one-to-many 
+			class="org.dcc.domain.ProcAddonMap" /> </set> <set name="rackLimitsForRack" 
+			> <key> <column name="RACK" not-null="true" /> </key> <one-to-many class="org.dcc.domain.RackLimit" 
+			/> </set> <set name="solutionCatsForSolFc" > <key> <column name="SOL_FC" 
+			/> </key> <one-to-many class="org.dcc.domain.SolutionCat" /> </set> <set 
+			name="puidCtryComps" > <key> <column name="PUID" not-null="true" /> </key> 
+			<one-to-many class="org.dcc.domain.PuidCtryComp" /> </set> <set name="cogRacks" 
+			> <key> <column name="RACK" not-null="true" /> </key> <one-to-many class="org.dcc.domain.CogRack" 
+			/> </set> <set name="chgHists" > <key> <column name="PUID" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.ChgHist" /> </set> <set name="categoryProdGrps" 
+			> <key> <column name="PUID" not-null="true" unique="true" /> </key> <one-to-many 
+			class="org.dcc.domain.CategoryProdGrp" /> </set> <set name="overideDatesesForMtPuid" 
+			> <key> <column name="MT_PUID" not-null="true" /> </key> <one-to-many class="org.dcc.domain.OverideDates" 
+			/> </set> <set name="memMapsForHvecMem" > <key> <column name="HVEC_MEM" /> 
+			</key> <one-to-many class="org.dcc.domain.MemMap" /> </set> <set name="xccHvecsForXcc" 
+			> <key> <column name="XCC" not-null="true" /> </key> <one-to-many class="org.dcc.domain.XccHvec" 
+			/> </set> <set name="relChngs" > <key> <column name="PUID" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.RelChng" /> </set> <set name="oemDatas" 
+			> <key> <column name="PUID" not-null="true" unique="true" /> </key> <one-to-many 
+			class="org.dcc.domain.OemData" /> </set> <set name="xccPricesForFeat" > <key> 
+			<column name="FEAT" not-null="true" /> </key> <one-to-many class="org.dcc.domain.XccPrice" 
+			/> </set> <set name="pduMapsForHvecPdu" > <key> <column name="HVEC_PDU" not-null="true" 
+			/> </key> <one-to-many class="org.dcc.domain.PduMap" /> </set> <set name="servpacTrgtsyses" 
+			> <key> <column name="SP_PUID" not-null="true" /> </key> <one-to-many class="org.dcc.domain.ServpacTrgtsys" 
+			/> </set> -->
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 硬件的"org.dcc.domain.Category" -->
+<hibernate-mapping>
+	<class name="org.dcc.domain.Category" table="CATEGORY" schema="DB2INST1">
+		<id name="catId" type="java.lang.Integer">
+			<column name="CAT_ID" />
+			<generator class="native" />
+		</id>
+		<property name="catDesc" type="java.lang.String">
+			<column name="CAT_DESC" length="50" not-null="true" />
+		</property>
+		<property name="cfg" type="character">
+			<column name="CFG" length="1" />
+		</property>
+
+
+		<!-- 旧方案<set name="funcCats" inverse="true"> <key> <column name="CAT_ID" 
+			not-null="true" /> </key> <one-to-many class="org.dcc.domain.FuncCat" /> 
+			</set> -->
+
+		<!-- 新方案:通过table项告诉hibernate中间表的名称 -->
+		<set name="functionTypes" table="FUNC_CAT" schema="DB2INST1"
+			inverse="true">
+			<!-- 通过key属性告诉hibernate在中间表里面查询C_id值相应的Product记录 -->
+			<key column="CAT_ID" />
+			<!-- 通过column项告诉hibernate对student表中查找FT_id值相就的Realsea记录 -->
+			<many-to-many class="org.dcc.domain.FunctionalType"
+				column="FT_UID" />
+		</set>
+
+
+		<!-- <set name="productTestings" inverse="true"> <key> <column name="CAT_ID" 
+			/> </key> <one-to-many class="org.dcc.domain.ProductTesting" /> </set> -->
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 介绍说明: -->
+<hibernate-mapping>
+	<class name="org.dcc.domain.Mfg" table="MFG" schema="DB2INST1"
+		>
+		<!--generator 其实这个native并非实际的类型，而是hiberante根据 当前使用的数据库，自动使用对应的类型。 -->
+		<!-- 例如：如果sqlserver，native就对应identity -->
+		
+		<id name="mfgId" type="java.lang.Integer">
+			<column name="MFG_ID" />
+			<generator class="native" />
+		</id>
+		<property name="mfgDesc" type="java.lang.String">
+			<column name="MFG_DESC" length="30" />
+		</property>
+		<!-- <set name="products" inverse="true">
+			<key>
+				<column name="MFG_ID" />
+			</key>
+			<one-to-many class="org.dcc.domain.Product" />
+		</set> -->
+		<!-- <set name="productTestings" inverse="true">
+			<key>
+				<column name="MFG_ID" />
+			</key>
+			<one-to-many class="org.dcc.domain.ProductTesting" />
+		</set> -->
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd ">
+<hibernate-mapping>
+	<class name="org.dcc.domain.SysUser" table="t_users" catalog="xinyue">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="identity"></generator>
+		</id>
+		<property name="loginName" type="string">
+			<column name="login_name" />
+		</property>
+		<property name="password" type="string">
+			<column name="password" />
+		</property>
+		<property name="vsername" type="string">
+			<column name="vsername" />
+		</property>
+		<property name="mobile" type="java.lang.Integer">
+			<column name="mobile" />
+		</property>
+		<property name="email" type="string">
+			<column name="email" />
+		</property>
+		<property name="genTime" type="java.sql.Timestamp">
+			<column name="gen_time" length="19" />
+		</property>
+		<property name="loginTime" type="java.sql.Timestamp">
+			<column name="login_time" length="19" />
+		</property>
+		<property name="lastLoginTime" type="java.sql.Timestamp">
+			<column name="last_login_time" length="19" />
+		</property>
+		<property name="count" type="java.lang.Integer">
+			<column name="count" />
+		</property>
+	</class>
+</hibernate-mapping>
