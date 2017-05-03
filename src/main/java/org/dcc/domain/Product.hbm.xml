@@ -9,19 +9,20 @@
 			<generator class="identity" />
 		</id>
 		<!-- fetch ：抓取策略，类似于lazy select=true -->
-		<many-to-one name="functionalType" class="org.dcc.domain.FunctionalType" lazy="false"
-			fetch="select">
+		<many-to-one name="functionalType" class="org.dcc.domain.FunctionalType"
+			lazy="proxy" fetch="select">
 			<column name="FT_UID" />
 		</many-to-one>
-		<many-to-one name="category" class="org.dcc.domain.Category" lazy="false"
-			fetch="select">
+		<many-to-one name="category" class="org.dcc.domain.Category"
+			lazy="proxy" fetch="select">
 			<column name="CAT_ID" />
 		</many-to-one>
-		<many-to-one name="brand" class="org.dcc.domain.Brand" lazy="false"
-			fetch="select">
+		<many-to-one name="brand" class="org.dcc.domain.Brand"
+			lazy="proxy" fetch="select">
 			<column name="BID" />
 		</many-to-one>
-		<many-to-one name="mfg" class="org.dcc.domain.Mfg" lazy="false" fetch="select">
+		<many-to-one name="mfg" class="org.dcc.domain.Mfg" lazy="proxy"
+			fetch="select">
 			<column name="MFG_ID" />
 		</many-to-one>
 		<property name="description" type="java.lang.String">
@@ -95,7 +96,7 @@
 			</set> -->
 
 		<!-- 新方案:通过table项告诉hibernate中间表的名称 -->
-		<set name="releases" table="REL_PROD" schema="DB2INST1">
+		<set name="releases" table="REL_PROD" schema="DB2INST1" lazy="true">
 			<!-- 通过key属性告诉hibernate在中间表里面查询product_id值相应的Product记录 -->
 			<key column="PUID" />
 			<!-- 通过column项告诉hibernate对student表中查找student_id值相就的Realsea记录 -->
