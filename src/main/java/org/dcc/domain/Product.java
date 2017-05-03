@@ -148,25 +148,32 @@ public class Product implements java.io.Serializable {
 
 	// Property accessors
 
-	public Product(Long puid, FunctionalType functionalType, Category category, Brand brand, Mfg mfg, String description, String mt, String model,
-	        String featCode, String ppn, String fruPn, String optPn, String mfgPn, String sbb, String mfi, String ffi, String price, String modelx,
-	        Character visible, String fcAas, Character passthru, Character xccVld, String bhcId, String bhcFeat, String customerSelected,
-	        String priced, String poptPn, Set addHists, Set opsysesForProcFc, Set prodP2pLocations, Set servpacs, Set requiredAddsesForReqAdd,
-	        Set rackings, Set fillerses, Set fcAllautos, Set defaultAddsesForProduct, Set requiredAddsesForProd2, Set gavMapsForOpt, Set ndpses,
-	        Set overideDatesesForSbbPuid, Set xccHvecsForHvec, Set opsysesForLicense, Set usrComts, Set solutionCatsForSolSbFc, Set prdLocks,
-	        Set pduMapsForHvecCbl, Set networkHcas, Set procMaps, Set fcAutoaddsForFcAdd, Set networkSwitchs, Set placementMaps, Set connLayoutMaps,
-	        Set conditionalAddsesForSourceBPuid, Set relProds, Set conditionalAddsesForSourceDPuid, Set connectorReplcmnts, Set pwrMaps,
-	        Set softwareRoutings, Set gavMapsForXccMt, Set ecs, Set conditionalAddsesForSourceCPuid, Set defaultAddsesForDfltAdd,
-	        Set pduMapsForXccPdu, Set opsysesForServer, Set masterCompatMapsForCompPuid, Set opsysSelectsForFeature,
-	        Set conditionalAddsesForSourceAPuid, Set prodShortLbls, Set incompatsForPuid2, Set gavMapsForHvecMtm, Set memMapsForXccMem,
-	        Set subComponentsesForSubCompPuid, Set prdFcs, Set salesItemses, Set incompatsForPuid1, Set subComponentsesForCompPuid,
-	        Set replaceProductsForPuid, Set prodPics, Set replaceProductsForReplacementPuid, Set pDateses, Set opsysesForOsFc, Set supAddsesForProd1,
-	        Set masterCompatMapsForMtPuid, Set supAddsesForSupAdd, Set requiredAddsesForProd1, Set supAddsesForProd2, Set productGroups,
-	        Set olbBoxerIncomps, Set xccPricesForMt, Set opsysSelectsForMedKit, Set conditionalAddsesForResultPuid, Set opsysSelectsForSftwrPid,
-	        Set slotMisForOpt, Set rackLimitsForProduct, Set fcAutoaddsForFcTool, Set conditionalAddsesForDestinationPuid, Set slotMisForMt,
-	        Set networkCables, Set opsysesForSupFc, Set procAddonMapsForProcAddonPuid, Set procAddonMapsForProcInitPuid, Set rackLimitsForRack,
-	        Set solutionCatsForSolFc, Set puidCtryComps, Set cogRacks, Set chgHists, Set categoryProdGrps, Set overideDatesesForMtPuid,
-	        Set memMapsForHvecMem, Set xccHvecsForXcc, Set relChngs, Set oemDatas, Set xccPricesForFeat, Set pduMapsForHvecPdu, Set servpacTrgtsyses) {
+	public Product(Long puid, FunctionalType functionalType, Category category, Brand brand, Mfg mfg,
+			String description, String mt, String model, String featCode, String ppn, String fruPn, String optPn,
+			String mfgPn, String sbb, String mfi, String ffi, String price, String modelx, Character visible,
+			String fcAas, Character passthru, Character xccVld, String bhcId, String bhcFeat, String customerSelected,
+			String priced, String poptPn, Set addHists, Set opsysesForProcFc, Set prodP2pLocations, Set servpacs,
+			Set requiredAddsesForReqAdd, Set rackings, Set fillerses, Set fcAllautos, Set defaultAddsesForProduct,
+			Set requiredAddsesForProd2, Set gavMapsForOpt, Set ndpses, Set overideDatesesForSbbPuid,
+			Set xccHvecsForHvec, Set opsysesForLicense, Set usrComts, Set solutionCatsForSolSbFc, Set prdLocks,
+			Set pduMapsForHvecCbl, Set networkHcas, Set procMaps, Set fcAutoaddsForFcAdd, Set networkSwitchs,
+			Set placementMaps, Set connLayoutMaps, Set conditionalAddsesForSourceBPuid, Set relProds,
+			Set conditionalAddsesForSourceDPuid, Set connectorReplcmnts, Set pwrMaps, Set softwareRoutings,
+			Set gavMapsForXccMt, Set ecs, Set conditionalAddsesForSourceCPuid, Set defaultAddsesForDfltAdd,
+			Set pduMapsForXccPdu, Set opsysesForServer, Set masterCompatMapsForCompPuid, Set opsysSelectsForFeature,
+			Set conditionalAddsesForSourceAPuid, Set prodShortLbls, Set incompatsForPuid2, Set gavMapsForHvecMtm,
+			Set memMapsForXccMem, Set subComponentsesForSubCompPuid, Set prdFcs, Set salesItemses,
+			Set incompatsForPuid1, Set subComponentsesForCompPuid, Set replaceProductsForPuid, Set prodPics,
+			Set replaceProductsForReplacementPuid, Set pDateses, Set opsysesForOsFc, Set supAddsesForProd1,
+			Set masterCompatMapsForMtPuid, Set supAddsesForSupAdd, Set requiredAddsesForProd1, Set supAddsesForProd2,
+			Set productGroups, Set olbBoxerIncomps, Set xccPricesForMt, Set opsysSelectsForMedKit,
+			Set conditionalAddsesForResultPuid, Set opsysSelectsForSftwrPid, Set slotMisForOpt,
+			Set rackLimitsForProduct, Set fcAutoaddsForFcTool, Set conditionalAddsesForDestinationPuid,
+			Set slotMisForMt, Set networkCables, Set opsysesForSupFc, Set procAddonMapsForProcAddonPuid,
+			Set procAddonMapsForProcInitPuid, Set rackLimitsForRack, Set solutionCatsForSolFc, Set puidCtryComps,
+			Set cogRacks, Set chgHists, Set categoryProdGrps, Set overideDatesesForMtPuid, Set memMapsForHvecMem,
+			Set xccHvecsForXcc, Set relChngs, Set oemDatas, Set xccPricesForFeat, Set pduMapsForHvecPdu,
+			Set servpacTrgtsyses) {
 		super();
 		this.puid = puid;
 		this.functionalType = functionalType;
@@ -1212,44 +1219,56 @@ public class Product implements java.io.Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "======\tProduct: [puid=" + puid + ", functionalType=" + functionalType + ", category=" + category + ", brand=" + brand + ", mfg="
-		        + mfg + ", description=" + description + ", mt=" + mt + ", model=" + model + ", featCode=" + featCode + ", ppn=" + ppn + ", fruPn="
-		        + fruPn + ", optPn=" + optPn + ", mfgPn=" + mfgPn + ", sbb=" + sbb + ", mfi=" + mfi + ", ffi=" + ffi + ", price=" + price
-		        + ", modelx=" + modelx + ", visible=" + visible + ", fcAas=" + fcAas + ", passthru=" + passthru + ", xccVld=" + xccVld + ", bhcId="
-		        + bhcId + ", bhcFeat=" + bhcFeat + ", customerSelected=" + customerSelected + ", priced=" + priced + ", poptPn=" + poptPn
-		        + ", addHists=" + addHists + ", opsysesForProcFc=" + opsysesForProcFc + ", prodP2pLocations=" + prodP2pLocations + ", servpacs="
-		        + servpacs + ", requiredAddsesForReqAdd=" + requiredAddsesForReqAdd + ", rackings=" + rackings + ", fillerses=" + fillerses
-		        + ", fcAllautos=" + fcAllautos + ", defaultAddsesForProduct=" + defaultAddsesForProduct + ", requiredAddsesForProd2="
-		        + requiredAddsesForProd2 + ", gavMapsForOpt=" + gavMapsForOpt + ", ndpses=" + ndpses + ", overideDatesesForSbbPuid="
-		        + overideDatesesForSbbPuid + ", xccHvecsForHvec=" + xccHvecsForHvec + ", opsysesForLicense=" + opsysesForLicense + ", usrComts="
-		        + usrComts + ", solutionCatsForSolSbFc=" + solutionCatsForSolSbFc + ", prdLocks=" + prdLocks + ", pduMapsForHvecCbl="
-		        + pduMapsForHvecCbl + ", networkHcas=" + networkHcas + ", procMaps=" + procMaps + ", fcAutoaddsForFcAdd=" + fcAutoaddsForFcAdd
-		        + ", networkSwitchs=" + networkSwitchs + ", placementMaps=" + placementMaps + ", connLayoutMaps=" + connLayoutMaps
-		        + ", conditionalAddsesForSourceBPuid=" + conditionalAddsesForSourceBPuid + ", relProds=" + relProds
-		        + ", conditionalAddsesForSourceDPuid=" + conditionalAddsesForSourceDPuid + ", connectorReplcmnts=" + connectorReplcmnts
-		        + ", pwrMaps=" + pwrMaps + ", softwareRoutings=" + softwareRoutings + ", gavMapsForXccMt=" + gavMapsForXccMt + ", ecs=" + ecs
-		        + ", conditionalAddsesForSourceCPuid=" + conditionalAddsesForSourceCPuid + ", defaultAddsesForDfltAdd=" + defaultAddsesForDfltAdd
-		        + ", pduMapsForXccPdu=" + pduMapsForXccPdu + ", opsysesForServer=" + opsysesForServer + ", masterCompatMapsForCompPuid="
-		        + masterCompatMapsForCompPuid + ", opsysSelectsForFeature=" + opsysSelectsForFeature + ", conditionalAddsesForSourceAPuid="
-		        + conditionalAddsesForSourceAPuid + ", prodShortLbls=" + prodShortLbls + ", incompatsForPuid2=" + incompatsForPuid2
-		        + ", gavMapsForHvecMtm=" + gavMapsForHvecMtm + ", memMapsForXccMem=" + memMapsForXccMem + ", subComponentsesForSubCompPuid="
-		        + subComponentsesForSubCompPuid + ", prdFcs=" + prdFcs + ", salesItemses=" + salesItemses + ", incompatsForPuid1="
-		        + incompatsForPuid1 + ", subComponentsesForCompPuid=" + subComponentsesForCompPuid + ", replaceProductsForPuid="
-		        + replaceProductsForPuid + ", prodPics=" + prodPics + ", replaceProductsForReplacementPuid=" + replaceProductsForReplacementPuid
-		        + ", PDateses=" + PDateses + ", opsysesForOsFc=" + opsysesForOsFc + ", supAddsesForProd1=" + supAddsesForProd1
-		        + ", masterCompatMapsForMtPuid=" + masterCompatMapsForMtPuid + ", supAddsesForSupAdd=" + supAddsesForSupAdd
-		        + ", requiredAddsesForProd1=" + requiredAddsesForProd1 + ", supAddsesForProd2=" + supAddsesForProd2 + ", productGroups="
-		        + productGroups + ", olbBoxerIncomps=" + olbBoxerIncomps + ", xccPricesForMt=" + xccPricesForMt + ", opsysSelectsForMedKit="
-		        + opsysSelectsForMedKit + ", conditionalAddsesForResultPuid=" + conditionalAddsesForResultPuid + ", opsysSelectsForSftwrPid="
-		        + opsysSelectsForSftwrPid + ", slotMisForOpt=" + slotMisForOpt + ", rackLimitsForProduct=" + rackLimitsForProduct
-		        + ", fcAutoaddsForFcTool=" + fcAutoaddsForFcTool + ", conditionalAddsesForDestinationPuid=" + conditionalAddsesForDestinationPuid
-		        + ", slotMisForMt=" + slotMisForMt + ", networkCables=" + networkCables + ", opsysesForSupFc=" + opsysesForSupFc
-		        + ", procAddonMapsForProcAddonPuid=" + procAddonMapsForProcAddonPuid + ", procAddonMapsForProcInitPuid="
-		        + procAddonMapsForProcInitPuid + ", rackLimitsForRack=" + rackLimitsForRack + ", solutionCatsForSolFc=" + solutionCatsForSolFc
-		        + ", puidCtryComps=" + puidCtryComps + ", cogRacks=" + cogRacks + ", chgHists=" + chgHists + ", categoryProdGrps=" + categoryProdGrps
-		        + ", overideDatesesForMtPuid=" + overideDatesesForMtPuid + ", memMapsForHvecMem=" + memMapsForHvecMem + ", xccHvecsForXcc="
-		        + xccHvecsForXcc + ", relChngs=" + relChngs + ", oemDatas=" + oemDatas + ", xccPricesForFeat=" + xccPricesForFeat
-		        + ", pduMapsForHvecPdu=" + pduMapsForHvecPdu + ", servpacTrgtsyses=" + servpacTrgtsyses + "]";
+		return "======\tProduct: [puid=" + puid + ", functionalType=" + functionalType + ", category=" + category
+				+ ", brand=" + brand + ", mfg=" + mfg + ", description=" + description + ", mt=" + mt + ", model="
+				+ model + ", featCode=" + featCode + ", ppn=" + ppn + ", fruPn=" + fruPn + ", optPn=" + optPn
+				+ ", mfgPn=" + mfgPn + ", sbb=" + sbb + ", mfi=" + mfi + ", ffi=" + ffi + ", price=" + price
+				+ ", modelx=" + modelx + ", visible=" + visible + ", fcAas=" + fcAas + ", passthru=" + passthru
+				+ ", xccVld=" + xccVld + ", bhcId=" + bhcId + ", bhcFeat=" + bhcFeat + ", customerSelected="
+				+ customerSelected + ", priced=" + priced + ", poptPn=" + poptPn + ", addHists=" + addHists
+				+ ", opsysesForProcFc=" + opsysesForProcFc + ", prodP2pLocations=" + prodP2pLocations + ", servpacs="
+				+ servpacs + ", requiredAddsesForReqAdd=" + requiredAddsesForReqAdd + ", rackings=" + rackings
+				+ ", fillerses=" + fillerses + ", fcAllautos=" + fcAllautos + ", defaultAddsesForProduct="
+				+ defaultAddsesForProduct + ", requiredAddsesForProd2=" + requiredAddsesForProd2 + ", gavMapsForOpt="
+				+ gavMapsForOpt + ", ndpses=" + ndpses + ", overideDatesesForSbbPuid=" + overideDatesesForSbbPuid
+				+ ", xccHvecsForHvec=" + xccHvecsForHvec + ", opsysesForLicense=" + opsysesForLicense + ", usrComts="
+				+ usrComts + ", solutionCatsForSolSbFc=" + solutionCatsForSolSbFc + ", prdLocks=" + prdLocks
+				+ ", pduMapsForHvecCbl=" + pduMapsForHvecCbl + ", networkHcas=" + networkHcas + ", procMaps="
+				+ procMaps + ", fcAutoaddsForFcAdd=" + fcAutoaddsForFcAdd + ", networkSwitchs=" + networkSwitchs
+				+ ", placementMaps=" + placementMaps + ", connLayoutMaps=" + connLayoutMaps
+				+ ", conditionalAddsesForSourceBPuid=" + conditionalAddsesForSourceBPuid + ", relProds=" + relProds
+				+ ", conditionalAddsesForSourceDPuid=" + conditionalAddsesForSourceDPuid + ", connectorReplcmnts="
+				+ connectorReplcmnts + ", pwrMaps=" + pwrMaps + ", softwareRoutings=" + softwareRoutings
+				+ ", gavMapsForXccMt=" + gavMapsForXccMt + ", ecs=" + ecs + ", conditionalAddsesForSourceCPuid="
+				+ conditionalAddsesForSourceCPuid + ", defaultAddsesForDfltAdd=" + defaultAddsesForDfltAdd
+				+ ", pduMapsForXccPdu=" + pduMapsForXccPdu + ", opsysesForServer=" + opsysesForServer
+				+ ", masterCompatMapsForCompPuid=" + masterCompatMapsForCompPuid + ", opsysSelectsForFeature="
+				+ opsysSelectsForFeature + ", conditionalAddsesForSourceAPuid=" + conditionalAddsesForSourceAPuid
+				+ ", prodShortLbls=" + prodShortLbls + ", incompatsForPuid2=" + incompatsForPuid2
+				+ ", gavMapsForHvecMtm=" + gavMapsForHvecMtm + ", memMapsForXccMem=" + memMapsForXccMem
+				+ ", subComponentsesForSubCompPuid=" + subComponentsesForSubCompPuid + ", prdFcs=" + prdFcs
+				+ ", salesItemses=" + salesItemses + ", incompatsForPuid1=" + incompatsForPuid1
+				+ ", subComponentsesForCompPuid=" + subComponentsesForCompPuid + ", replaceProductsForPuid="
+				+ replaceProductsForPuid + ", prodPics=" + prodPics + ", replaceProductsForReplacementPuid="
+				+ replaceProductsForReplacementPuid + ", PDateses=" + PDateses + ", opsysesForOsFc=" + opsysesForOsFc
+				+ ", supAddsesForProd1=" + supAddsesForProd1 + ", masterCompatMapsForMtPuid="
+				+ masterCompatMapsForMtPuid + ", supAddsesForSupAdd=" + supAddsesForSupAdd
+				+ ", requiredAddsesForProd1=" + requiredAddsesForProd1 + ", supAddsesForProd2=" + supAddsesForProd2
+				+ ", productGroups=" + productGroups + ", olbBoxerIncomps=" + olbBoxerIncomps + ", xccPricesForMt="
+				+ xccPricesForMt + ", opsysSelectsForMedKit=" + opsysSelectsForMedKit
+				+ ", conditionalAddsesForResultPuid=" + conditionalAddsesForResultPuid + ", opsysSelectsForSftwrPid="
+				+ opsysSelectsForSftwrPid + ", slotMisForOpt=" + slotMisForOpt + ", rackLimitsForProduct="
+				+ rackLimitsForProduct + ", fcAutoaddsForFcTool=" + fcAutoaddsForFcTool
+				+ ", conditionalAddsesForDestinationPuid=" + conditionalAddsesForDestinationPuid + ", slotMisForMt="
+				+ slotMisForMt + ", networkCables=" + networkCables + ", opsysesForSupFc=" + opsysesForSupFc
+				+ ", procAddonMapsForProcAddonPuid=" + procAddonMapsForProcAddonPuid
+				+ ", procAddonMapsForProcInitPuid=" + procAddonMapsForProcInitPuid + ", rackLimitsForRack="
+				+ rackLimitsForRack + ", solutionCatsForSolFc=" + solutionCatsForSolFc + ", puidCtryComps="
+				+ puidCtryComps + ", cogRacks=" + cogRacks + ", chgHists=" + chgHists + ", categoryProdGrps="
+				+ categoryProdGrps + ", overideDatesesForMtPuid=" + overideDatesesForMtPuid + ", memMapsForHvecMem="
+				+ memMapsForHvecMem + ", xccHvecsForXcc=" + xccHvecsForXcc + ", relChngs=" + relChngs + ", oemDatas="
+				+ oemDatas + ", xccPricesForFeat=" + xccPricesForFeat + ", pduMapsForHvecPdu=" + pduMapsForHvecPdu
+				+ ", servpacTrgtsyses=" + servpacTrgtsyses + "]";
 	}
 
 	/**

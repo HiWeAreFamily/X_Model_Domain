@@ -52,10 +52,10 @@ public class ListProdId implements java.io.Serializable {
 			return false;
 		ListProdId castOther = (ListProdId) other;
 
-		return ((this.getListCat() == castOther.getListCat()) || (this.getListCat() != null && castOther.getListCat() != null && this.getListCat()
-		        .equals(castOther.getListCat())))
-		        && ((this.getPuid() == castOther.getPuid()) || (this.getPuid() != null && castOther.getPuid() != null && this.getPuid().equals(
-		                castOther.getPuid())));
+		return ((this.getListCat() == castOther.getListCat()) || (this.getListCat() != null
+				&& castOther.getListCat() != null && this.getListCat().equals(castOther.getListCat())))
+				&& ((this.getPuid() == castOther.getPuid()) || (this.getPuid() != null && castOther.getPuid() != null && this
+						.getPuid().equals(castOther.getPuid())));
 	}
 
 	public int hashCode() {

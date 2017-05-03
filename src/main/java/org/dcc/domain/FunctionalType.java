@@ -16,10 +16,10 @@ public class FunctionalType implements java.io.Serializable {
 	private Long ftUid;
 	private String ftDesc;
 
-//	private Set funcCats = new HashSet(0);
+	// private Set funcCats = new HashSet(0);
 	private Set categorys = new HashSet(0);
 
-//	private Set relFts = new HashSet(0);
+	// private Set relFts = new HashSet(0);
 
 	// private Set productTestings = new HashSet(0);
 	// private Set products = new HashSet(0);
@@ -65,21 +65,21 @@ public class FunctionalType implements java.io.Serializable {
 		this.ftDesc = ftDesc;
 	}
 
-//	public Set getRelFts() {
-//		return this.relFts;
-//	}
-//
-//	public void setRelFts(Set relFts) {
-//		this.relFts = relFts;
-//	}
+	// public Set getRelFts() {
+	// return this.relFts;
+	// }
+	//
+	// public void setRelFts(Set relFts) {
+	// this.relFts = relFts;
+	// }
 
-//	public Set getFuncCats() {
-//		return this.funcCats;
-//	}
-//
-//	public void setFuncCats(Set funcCats) {
-//		this.funcCats = funcCats;
-//	}
+	// public Set getFuncCats() {
+	// return this.funcCats;
+	// }
+	//
+	// public void setFuncCats(Set funcCats) {
+	// this.funcCats = funcCats;
+	// }
 
 	/**
 	 * @return the categorys

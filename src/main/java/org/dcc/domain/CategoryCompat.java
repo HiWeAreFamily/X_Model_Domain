@@ -40,8 +40,8 @@ public class CategoryCompat implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public CategoryCompat(Long cuid, String description, Set passthrusForCuid3, Set categoryProdGrps, Set passthrusForCuid2, Set categoryConnectors,
-	        Set passthrusForCuid1) {
+	public CategoryCompat(Long cuid, String description, Set passthrusForCuid3, Set categoryProdGrps,
+			Set passthrusForCuid2, Set categoryConnectors, Set passthrusForCuid1) {
 		this.cuid = cuid;
 		this.description = description;
 		this.passthrusForCuid3 = passthrusForCuid3;

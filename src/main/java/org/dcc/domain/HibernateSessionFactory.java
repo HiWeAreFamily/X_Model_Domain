@@ -1,4 +1,5 @@
 package org.dcc.domain;
+
 //package org.dcc.domain;
 //
 //import org.hibernate.HibernateException;
@@ -107,4 +108,4 @@ package org.dcc.domain;
 //		return configuration;
 //	}
 //
-//}
+// }

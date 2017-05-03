@@ -15,8 +15,9 @@ public class Mfg implements java.io.Serializable {
 
 	private Integer mfgId;
 	private String mfgDesc;
-//	private Set products = new HashSet(0);
-//	private Set productTestings = new HashSet(0);
+
+	// private Set products = new HashSet(0);
+	// private Set productTestings = new HashSet(0);
 
 	// Constructors
 
@@ -29,13 +30,14 @@ public class Mfg implements java.io.Serializable {
 		this.mfgId = mfgId;
 	}
 
-//	/** full constructor */
-//	public Mfg(Integer mfgId, String mfgDesc, Set products, Set productTestings) {
-//		this.mfgId = mfgId;
-//		this.mfgDesc = mfgDesc;
-//		this.products = products;
-//		this.productTestings = productTestings;
-//	}
+	// /** full constructor */
+	// public Mfg(Integer mfgId, String mfgDesc, Set products, Set
+	// productTestings) {
+	// this.mfgId = mfgId;
+	// this.mfgDesc = mfgDesc;
+	// this.products = products;
+	// this.productTestings = productTestings;
+	// }
 
 	// Property accessors
 
@@ -55,20 +57,20 @@ public class Mfg implements java.io.Serializable {
 		this.mfgDesc = mfgDesc;
 	}
 
-//	public Set getProducts() {
-//		return this.products;
-//	}
-//
-//	public void setProducts(Set products) {
-//		this.products = products;
-//	}
-//
-//	public Set getProductTestings() {
-//		return this.productTestings;
-//	}
-//
-//	public void setProductTestings(Set productTestings) {
-//		this.productTestings = productTestings;
-//	}
+	// public Set getProducts() {
+	// return this.products;
+	// }
+	//
+	// public void setProducts(Set products) {
+	// this.products = products;
+	// }
+	//
+	// public Set getProductTestings() {
+	// return this.productTestings;
+	// }
+	//
+	// public void setProductTestings(Set productTestings) {
+	// this.productTestings = productTestings;
+	// }
 
 }

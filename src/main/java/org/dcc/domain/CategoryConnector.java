@@ -71,11 +71,12 @@ public class CategoryConnector implements java.io.Serializable {
 		CategoryConnector castOther = (CategoryConnector) other;
 
 		return ((this.getCategoryCompat() == castOther.getCategoryCompat()) || (this.getCategoryCompat() != null
-		        && castOther.getCategoryCompat() != null && this.getCategoryCompat().equals(castOther.getCategoryCompat())))
-		        && ((this.getConnector() == castOther.getConnector()) || (this.getConnector() != null && castOther.getConnector() != null && this
-		                .getConnector().equals(castOther.getConnector())))
-		        && ((this.getQty() == castOther.getQty()) || (this.getQty() != null && castOther.getQty() != null && this.getQty().equals(
-		                castOther.getQty())));
+				&& castOther.getCategoryCompat() != null && this.getCategoryCompat().equals(
+				castOther.getCategoryCompat())))
+				&& ((this.getConnector() == castOther.getConnector()) || (this.getConnector() != null
+						&& castOther.getConnector() != null && this.getConnector().equals(castOther.getConnector())))
+				&& ((this.getQty() == castOther.getQty()) || (this.getQty() != null && castOther.getQty() != null && this
+						.getQty().equals(castOther.getQty())));
 	}
 
 	public int hashCode() {

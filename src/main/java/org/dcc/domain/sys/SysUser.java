@@ -25,7 +25,6 @@ public class SysUser {
 	private Date login_time;
 	private Date last_login_time;
 	private int count;
-	
 
 	// private String online_duration;
 	public int getId() {
@@ -100,8 +99,6 @@ public class SysUser {
 		this.last_login_time = last_login_time;
 	}
 
-	
-
 	public int getCount() {
 		return count;
 	}
@@ -115,9 +112,8 @@ public class SysUser {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SysUser(int id, String login_name, String password, String vsername,
-			int mobile, String email, Date gen_time, Date login_time,
-			Date last_login_time, int count) {
+	public SysUser(int id, String login_name, String password, String vsername, int mobile, String email,
+			Date gen_time, Date login_time, Date last_login_time, int count) {
 		super();
 		this.id = id;
 		this.login_name = login_name;

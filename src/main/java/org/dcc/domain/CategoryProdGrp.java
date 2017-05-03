@@ -25,7 +25,7 @@ public class CategoryProdGrp implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public CategoryProdGrp( Product product, CategoryCompat categoryCompat) {
+	public CategoryProdGrp(Product product, CategoryCompat categoryCompat) {
 		// this.puid = puid;
 		this.product = product;
 		this.categoryCompat = categoryCompat;

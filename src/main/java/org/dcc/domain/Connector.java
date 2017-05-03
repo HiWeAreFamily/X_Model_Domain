@@ -48,9 +48,17 @@ public class Connector implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Connector(Long connUid, String connDesc, String gender, Set prodP2pLocations, Set connLayoutMaps, Set connectorReplcmntsForDefaultConnUid,
-	        Set prdSlots, Set fillerses,/* Set connectorCompatsForConn1Uid,*/ Set slotMis, Set connectorReplcmntsForReplaceConnUid,
-	        Set categoryConnectors, /* Set connectorCompatsForConn2Uid, */ Set connectorNets) {
+	public Connector(Long connUid, String connDesc, String gender, Set prodP2pLocations, Set connLayoutMaps,
+			Set connectorReplcmntsForDefaultConnUid, Set prdSlots, Set fillerses,/*
+																				 * Set
+																				 * connectorCompatsForConn1Uid
+																				 * ,
+																				 */Set slotMis,
+			Set connectorReplcmntsForReplaceConnUid, Set categoryConnectors, /*
+																			 * Set
+																			 * connectorCompatsForConn2Uid
+																			 * ,
+																			 */Set connectorNets) {
 		this.connUid = connUid;
 		this.connDesc = connDesc;
 		this.gender = gender;
